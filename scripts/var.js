@@ -2,6 +2,9 @@ const body = document.querySelector("body");
 const regBtnAndLoginBtn = document.querySelector("#regBtnAndLoginBtn");
 const registrationBtn = document.querySelector("#registrationBtn");
 const loginBtn = document.querySelector("#loginBtn");
+const logoutBtn = document.createElement("button");
+logoutBtn.innerText = "Logout";
+regBtnAndLoginBtn.append(logoutBtn);
 // Anmeldung Form
 const regUserNameInput = document.createElement("input");
 const regEmailInput = document.createElement("input");
@@ -25,7 +28,7 @@ const priceInput = document.createElement("input");
 priceInput.placeholder = "Price";
 const costInput = document.createElement("input");
 costInput.placeholder = "Cost";
-const submitBtn = document.createElement("butoon");
+const submitBtn = document.createElement("button");
 submitBtn.innerText = "Submit";
 const url = "https://jsonplaceholder.typicode.com/posts";
 let orderObject = {
@@ -33,6 +36,18 @@ let orderObject = {
   price: priceInput.value,
   cost: costInput.value,
 };
+
+// Container with buttons in Order Form
+const payBtn = document.createElement("button");
+payBtn.innerText = "Pay";
+const sendBtn = document.createElement("button");
+sendBtn.innerText = "Send";
+const acceptBtn = document.createElement("button");
+acceptBtn.innerText = "Accept";
+const completeBtn = document.createElement("button");
+completeBtn.innerText = "Complete";
+let pMessege = document.createElement("p");
+regBtnAndLoginBtn.append(pMessege);
 
 const registrationH1 = document.createElement("h1");
 regBtnAndLoginBtn.append(registrationH1);
@@ -55,4 +70,10 @@ export {
   url,
   orderObject,
   submitBtn,
+  payBtn,
+  sendBtn,
+  acceptBtn,
+  completeBtn,
+  pMessege,
+  logoutBtn,
 };

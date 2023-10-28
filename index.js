@@ -7,15 +7,21 @@ import {
   regEmailInput,
   loginUserNameInput,
   loginEmailInput,
-  loginBtnLoginForm,
+  registrationH1,
   signUpBtn,
+  loginBtnLoginForm,
   addressInput,
   priceInput,
-  url,
   costInput,
+  url,
   orderObject,
   submitBtn,
-  registrationH1,
+  payBtn,
+  sendBtn,
+  acceptBtn,
+  completeBtn,
+  logoutBtn,
+  pMessege,
 } from "./scripts/var.js";
 import {
   userRegistration,
@@ -24,6 +30,7 @@ import {
   getItemFromLocalStorage,
   postOrderData,
   orderForm,
+  getRequestforFourthBtn,
 } from "./scripts/main.js";
 
 registrationBtn.addEventListener("click", () => {
@@ -45,4 +52,23 @@ loginBtnLoginForm.addEventListener("click", () => {
 });
 submitBtn.addEventListener("click", () => {
   postOrderData();
+});
+payBtn.addEventListener("click", () => {
+  getRequestforFourthBtn();
+  pMessege.innerText = "Order has been paid";
+});
+sendBtn.addEventListener("click", () => {
+  getRequestforFourthBtn();
+  pMessege.innerText = "the order has been sent";
+});
+acceptBtn.addEventListener("click", () => {
+  getRequestforFourthBtn();
+  pMessege.innerText = "Succes";
+});
+completeBtn.addEventListener("click", () => {
+  getRequestforFourthBtn();
+  pMessege.innerText = "Succes";
+});
+logoutBtn.addEventListener("click", () => {
+  body.style.display = "none";
 });

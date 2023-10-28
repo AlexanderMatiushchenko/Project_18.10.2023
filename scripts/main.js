@@ -15,6 +15,12 @@ import {
   orderObject,
   url,
   submitBtn,
+  payBtn,
+  sendBtn,
+  acceptBtn,
+  completeBtn,
+  pMessege,
+  logoutBtn,
   registrationH1,
 } from "./var.js";
 export {
@@ -24,6 +30,7 @@ export {
   getItemFromLocalStorage,
   postOrderData,
   orderForm,
+  getRequestforFourthBtn,
 };
 function userRegistration() {
   regBtnAndLoginBtn.append(regEmailInput);
@@ -80,7 +87,21 @@ async function postOrderData() {
     },
     body: JSON.stringify(orderObject),
   });
-
-  const responseText = await response.text();
-  console.log(responseText);
+  ifPostResponsOk();
+  // const responseText = await response.text();
+}
+function ifPostResponsOk() {
+  regBtnAndLoginBtn.append(payBtn);
+  regBtnAndLoginBtn.append(sendBtn);
+  regBtnAndLoginBtn.append(acceptBtn);
+  regBtnAndLoginBtn.append(completeBtn);
+}
+async function getRequestforFourthBtn() {
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/JSON",
+    },
+    body: JSON.stringify(),
+  });
 }
