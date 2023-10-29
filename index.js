@@ -31,14 +31,24 @@ import {
   postOrderData,
   orderForm,
   getRequestforFourthBtn,
+  pSignUpMessegeFunc,
+  ifPostResponsOkShow,
 } from "./scripts/main.js";
 
 registrationBtn.addEventListener("click", () => {
+  // Показываем скелетон
+  skeletonContainer.style.display = "block";
+
   setTimeout(function () {
+    // Здесь выполните вашу задачу после задержки
     setItemToLocalStorage();
     regUserNameInput.value = "";
     regEmailInput.value = "";
+
+    // Скрываем скелетон
+    skeletonContainer.style.display = "none";
   }, 2000);
+  pSignUpMessegeFunc();
 });
 
 loginBtn.addEventListener("click", () => {
@@ -48,6 +58,7 @@ loginBtn.addEventListener("click", () => {
 });
 submitBtn.addEventListener("click", () => {
   postOrderData();
+  ifPostResponsOkShow();
 });
 payBtn.addEventListener("click", () => {
   getRequestforFourthBtn();

@@ -12,6 +12,12 @@
     />
   </head>
   <body>
+    <div id="skeletonContainer" style="display: none">
+      <!-- Здесь может быть содержимое для эффекта скелетона -->
+      <div class="skeleton-element"></div>
+      <div class="skeleton-element"></div>
+      <div class="skeleton-element"></div>
+    </div>
     <div id="regBtnAndLoginBtn">
       <div id="signupBlock">
         <h1>New Here?</h1>
@@ -33,10 +39,8 @@
         <button id="loginBtn">Login</button>
       </div>
     </div>
-    <div id="registrationFormContainer"></div>
-    <div id="loginFormContainer"></div>
-    <div id="containerWithInputs"></div>
-    <div id="orderButtonsContainer"></div>
+    <div id="containerWithInputs" style="display: none"></div>
+    <div id="orderButtonsContainer" style="display: none"></div>
   </body>
   <script type="module" src="index.js"></script>
 </html>

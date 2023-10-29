@@ -27,11 +27,13 @@ import {
   orderObject,
 } from "./var.js";
 export {
+  pSignUpMessegeFunc,
   setItemToLocalStorage,
   getItemFromLocalStorage,
   postOrderData,
   orderForm,
   getRequestforFourthBtn,
+  ifPostResponsOkShow,
 };
 
 function setItemToLocalStorage() {
@@ -41,6 +43,12 @@ function setItemToLocalStorage() {
   };
   const userObjectJSON = JSON.stringify(userObject);
   localStorage.setItem("user", userObjectJSON);
+}
+function pSignUpMessegeFunc() {
+  let pSignUpMessege = document.createElement("p");
+  signupBlock.append(pSignUpMessege);
+  pSignUpMessege.innerText =
+    "Thanks for signing up. Welcome to our community. We are happy to have you on board.";
 }
 
 function getItemFromLocalStorage() {
@@ -56,6 +64,7 @@ function getItemFromLocalStorage() {
       console.log(userObject);
       orderForm();
       regBtnAndLoginBtn.style.display = "none";
+      containerWithInputs.style.display = "";
     } else {
       console.log("User Name or Email is Wrong.");
     }
@@ -82,8 +91,11 @@ async function postOrderData() {
   ifPostResponsOk();
   // const responseText = await response.text();
 }
-function ifPostResponsOk() {
+function ifPostResponsOkShow() {
   containerWithInputs.style.display = "none";
+  orderButtonsContainer.style.display = "";
+}
+function ifPostResponsOk() {
   orderButtonsContainer.append(payBtn);
   orderButtonsContainer.append(sendBtn);
   orderButtonsContainer.append(acceptBtn);
