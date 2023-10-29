@@ -1,31 +1,31 @@
 import {
   body,
   regBtnAndLoginBtn,
-  registrationBtn,
-  loginBtn,
+  logoutBtn,
+  signinBlock,
+  signupBlock,
   regUserNameInput,
   regEmailInput,
-  loginUserNameInput,
+  registrationBtn,
+  loginBtn,
   loginEmailInput,
-  registrationH1,
-  signUpBtn,
-  loginBtnLoginForm,
-  addressInput,
-  priceInput,
-  costInput,
-  url,
-  orderObject,
-  submitBtn,
+  loginUserNameInput,
   payBtn,
   sendBtn,
   acceptBtn,
   completeBtn,
-  logoutBtn,
-  pMessege,
+  messege,
+  addressInput,
+  priceInput,
+  costInput,
+  submitBtn,
+  orderButtonsContainer,
+  containerWithInputs,
+  loginFormContainer,
+  registrationFormContainer,
+  orderObject,
 } from "./scripts/var.js";
 import {
-  userRegistration,
-  userLogin,
   setItemToLocalStorage,
   getItemFromLocalStorage,
   postOrderData,
@@ -34,18 +34,14 @@ import {
 } from "./scripts/main.js";
 
 registrationBtn.addEventListener("click", () => {
-  userRegistration();
-});
-signUpBtn.addEventListener("click", () => {
-  setItemToLocalStorage();
-  regUserNameInput.value = "";
-  regEmailInput.value = "";
+  setTimeout(function () {
+    setItemToLocalStorage();
+    regUserNameInput.value = "";
+    regEmailInput.value = "";
+  }, 2000);
 });
 
 loginBtn.addEventListener("click", () => {
-  userLogin();
-});
-loginBtnLoginForm.addEventListener("click", () => {
   getItemFromLocalStorage();
   loginUserNameInput.value = "";
   loginEmailInput.value = "";
@@ -55,20 +51,21 @@ submitBtn.addEventListener("click", () => {
 });
 payBtn.addEventListener("click", () => {
   getRequestforFourthBtn();
-  pMessege.innerText = "Order has been paid";
+  messege.innerText = "Order has been paid";
 });
 sendBtn.addEventListener("click", () => {
   getRequestforFourthBtn();
-  pMessege.innerText = "the order has been sent";
+  messege.innerText = "the Order has been sent";
 });
 acceptBtn.addEventListener("click", () => {
   getRequestforFourthBtn();
-  pMessege.innerText = "Succes";
+  messege.innerText = "Succes";
 });
 completeBtn.addEventListener("click", () => {
   getRequestforFourthBtn();
-  pMessege.innerText = "Succes";
+  messege.innerText = "Succes";
 });
 logoutBtn.addEventListener("click", () => {
-  body.style.display = "none";
+  orderButtonsContainer.style.display = "none";
+  regBtnAndLoginBtn.style.display = "";
 });

@@ -5,12 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+    />
   </head>
   <body>
     <div id="regBtnAndLoginBtn">
-      <button id="registrationBtn">Sign Up</button>
-      <button id="loginBtn">Login</button>
+      <div id="signupBlock">
+        <h1>New Here?</h1>
+        <h3>Sign up and discover a great amount of new opportunities!</h3>
+        <input id="regEmailInput" placeholder="Email" type="text" />
+        <input id="regUserNameInput" placeholder="User Name" type="text" />
+        <button id="registrationBtn">Sign Up</button>
+      </div>
+      <div id="signinBlock">
+        <h1>Login to Your Account</h1>
+        <h3>Login using social networks</h3>
+        <div id="socialMediaContainer">
+          <i class="lab la-facebook"></i>
+          <i class="lab la-google-plus-g"></i>
+          <i class="lab la-instagram"></i>
+        </div>
+        <input id="loginEmailInput" placeholder="Email" type="text" />
+        <input id="loginUserNameInput" placeholder="User Name" type="text" />
+        <button id="loginBtn">Login</button>
+      </div>
     </div>
+    <div id="registrationFormContainer"></div>
+    <div id="loginFormContainer"></div>
+    <div id="containerWithInputs"></div>
+    <div id="orderButtonsContainer"></div>
   </body>
   <script type="module" src="index.js"></script>
 </html>

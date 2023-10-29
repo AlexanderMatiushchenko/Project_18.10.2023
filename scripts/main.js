@@ -1,47 +1,38 @@
 import {
   body,
   regBtnAndLoginBtn,
-  registrationBtn,
-  loginBtn,
+  logoutBtn,
+  signinBlock,
+  signupBlock,
   regUserNameInput,
   regEmailInput,
-  loginUserNameInput,
+  registrationBtn,
+  loginBtn,
   loginEmailInput,
-  loginBtnLoginForm,
-  signUpBtn,
-  addressInput,
-  priceInput,
-  costInput,
-  orderObject,
-  url,
-  submitBtn,
+  loginUserNameInput,
   payBtn,
   sendBtn,
   acceptBtn,
   completeBtn,
-  pMessege,
-  logoutBtn,
-  registrationH1,
+  messege,
+  addressInput,
+  priceInput,
+  costInput,
+  submitBtn,
+  orderButtonsContainer,
+  containerWithInputs,
+  loginFormContainer,
+  registrationFormContainer,
+  url,
+  orderObject,
 } from "./var.js";
 export {
-  userRegistration,
-  userLogin,
   setItemToLocalStorage,
   getItemFromLocalStorage,
   postOrderData,
   orderForm,
   getRequestforFourthBtn,
 };
-function userRegistration() {
-  regBtnAndLoginBtn.append(regEmailInput);
-  regBtnAndLoginBtn.append(regUserNameInput);
-  regBtnAndLoginBtn.append(signUpBtn);
-}
-function userLogin() {
-  regBtnAndLoginBtn.append(loginEmailInput);
-  regBtnAndLoginBtn.append(loginUserNameInput);
-  regBtnAndLoginBtn.append(loginBtnLoginForm);
-}
 
 function setItemToLocalStorage() {
   const userObject = {
@@ -64,6 +55,7 @@ function getItemFromLocalStorage() {
     ) {
       console.log(userObject);
       orderForm();
+      regBtnAndLoginBtn.style.display = "none";
     } else {
       console.log("User Name or Email is Wrong.");
     }
@@ -73,10 +65,10 @@ function getItemFromLocalStorage() {
 }
 
 function orderForm() {
-  regBtnAndLoginBtn.append(addressInput);
-  regBtnAndLoginBtn.append(priceInput);
-  regBtnAndLoginBtn.append(costInput);
-  regBtnAndLoginBtn.append(submitBtn);
+  containerWithInputs.append(addressInput);
+  containerWithInputs.append(priceInput);
+  containerWithInputs.append(costInput);
+  containerWithInputs.append(submitBtn);
 }
 
 async function postOrderData() {
@@ -91,10 +83,11 @@ async function postOrderData() {
   // const responseText = await response.text();
 }
 function ifPostResponsOk() {
-  regBtnAndLoginBtn.append(payBtn);
-  regBtnAndLoginBtn.append(sendBtn);
-  regBtnAndLoginBtn.append(acceptBtn);
-  regBtnAndLoginBtn.append(completeBtn);
+  containerWithInputs.style.display = "none";
+  orderButtonsContainer.append(payBtn);
+  orderButtonsContainer.append(sendBtn);
+  orderButtonsContainer.append(acceptBtn);
+  orderButtonsContainer.append(completeBtn);
 }
 async function getRequestforFourthBtn() {
   const response = await fetch(url, {
