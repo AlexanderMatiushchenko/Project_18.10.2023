@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -56,9 +55,10 @@
   font-weight: 400;
   font-size: 2rem;
 }
-#regBtnAndLoginBtn #socialMediaContainer i {
-  font-size: 5rem;
-  color: #38ba8a;
+#regBtnAndLoginBtn #socialMediaContainer img {
+  width: 5rem;
+  height: 5rem;
+  margin: 2vh;
 }
 
 #signupBlock {
@@ -174,8 +174,8 @@ input {
 }
 
 .skeleton-element {
-  width: 100px; /* Установите желаемую ширину */
-  height: 20px; /* Установите желаемую высоту */
+  width: 100vw;
+  height: 5vh;
   background: -webkit-gradient(linear, left top, right top, color-stop(25%, #f0f0f0), color-stop(50%, #e0e0e0), color-stop(75%, #f0f0f0));
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
@@ -199,4 +199,15 @@ input {
   100% {
     background-position: -200% 0;
   }
+}
+#messegeContainer {
+  display: none;
+  background-color: #38ba8a;
+  border-radius: 10px;
+}
+#messegeContainer h3 {
+  color: white;
+  font-size: 3rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 5vh;
 }

@@ -28,12 +28,18 @@ let orderObject = {
 };
 
 // Container with buttons in Order Form
+
 const orderButtonsContainer = document.querySelector("#orderButtonsContainer");
 const containerWithInputs = document.querySelector("#containerWithInputs");
 const loginFormContainer = document.querySelector("#loginFormContainer");
 const registrationFormContainer = document.querySelector(
   "#registrationFormContainer"
 );
+const messegeContainer = document.createElement("div");
+messegeContainer.id = "messegeContainer";
+orderButtonsContainer.append(messegeContainer);
+let messege = document.createElement("h3");
+messegeContainer.append(messege);
 const payBtn = document.createElement("button");
 payBtn.innerText = "Pay";
 const sendBtn = document.createElement("button");
@@ -42,14 +48,10 @@ const acceptBtn = document.createElement("button");
 acceptBtn.innerText = "Accept";
 const completeBtn = document.createElement("button");
 completeBtn.innerText = "Complete";
-let messege = document.createElement("h3");
-orderButtonsContainer.append(messege);
-
 const registrationH1 = document.createElement("h1");
 regBtnAndLoginBtn.append(registrationH1);
 
 // Logout button
-
 const logoutBtn = document.createElement("button");
 logoutBtn.innerText = "Logout";
 orderButtonsContainer.append(logoutBtn);
@@ -83,4 +85,5 @@ export {
   registrationFormContainer,
   url,
   orderObject,
+  messegeContainer,
 };

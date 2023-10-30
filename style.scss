@@ -33,9 +33,10 @@
     font-size: 2rem;
   }
   #socialMediaContainer {
-    i {
-      font-size: 5rem;
-      color: #38ba8a;
+    img {
+      width: 5rem;
+      height: 5rem;
+      margin: 2vh;
     }
   }
 }
@@ -128,11 +129,11 @@ input {
 }
 
 .skeleton-element {
-  width: 100px; /* Установите желаемую ширину */
-  height: 20px; /* Установите желаемую высоту */
+  width: 100vw;
+  height: 5vh;
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
-  animation: skeleton-loading 2s infinite;
+  animation: skeleton-loading 1.5s infinite;
 }
 
 @keyframes skeleton-loading {
@@ -141,5 +142,16 @@ input {
   }
   100% {
     background-position: -200% 0;
+  }
+}
+#messegeContainer {
+  display: none;
+  background-color: #38ba8a;
+  border-radius: 10px;
+  h3 {
+    color: white;
+    font-size: 3rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5vh;
   }
 }

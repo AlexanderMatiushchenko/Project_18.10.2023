@@ -25,15 +25,19 @@ import {
   registrationFormContainer,
   url,
   orderObject,
+  messegeContainer,
 } from "./var.js";
 export {
   pSignUpMessegeFunc,
   setItemToLocalStorage,
   getItemFromLocalStorage,
   postOrderData,
-  orderForm,
   getRequestforFourthBtn,
   ifPostResponsOkShow,
+  orderStatusCompleteAndAccept,
+  showOrderStatusSent,
+  showOrderStatusPaid,
+  logout,
 };
 
 function setItemToLocalStorage() {
@@ -41,16 +45,26 @@ function setItemToLocalStorage() {
     userName: regUserNameInput.value,
     email: regEmailInput.value,
   };
-  const userObjectJSON = JSON.stringify(userObject);
-  localStorage.setItem("user", userObjectJSON);
+  try {
+    const userObjectJSON = JSON.stringify(userObject);
+    localStorage.setItem("user", userObjectJSON);
+  } catch {
+    console.log("Err");
+  }
 }
 function pSignUpMessegeFunc() {
-  let pSignUpMessege = document.createElement("p");
-  signupBlock.append(pSignUpMessege);
-  pSignUpMessege.innerText =
-    "Thanks for signing up. Welcome to our community. We are happy to have you on board.";
+  let existingMessage = document.querySelector("#signupMessage");
+  if (existingMessage) {
+    existingMessage.innerText =
+      "Thanks for signing up. Your information has been updated.";
+  } else {
+    let pSignUpMessage = document.createElement("p");
+    pSignUpMessage.id = "signupMessage";
+    pSignUpMessage.innerText =
+      "Thanks for signing up. Welcome to our community. We are happy to have you on board.";
+    signupBlock.appendChild(pSignUpMessage);
+  }
 }
-
 function getItemFromLocalStorage() {
   const loginUserName = loginUserNameInput.value;
   const loginEmail = loginEmailInput.value;
@@ -74,10 +88,7 @@ function getItemFromLocalStorage() {
 }
 
 function orderForm() {
-  containerWithInputs.append(addressInput);
-  containerWithInputs.append(priceInput);
-  containerWithInputs.append(costInput);
-  containerWithInputs.append(submitBtn);
+  containerWithInputs.append(addressInput, priceInput, costInput, submitBtn);
 }
 
 async function postOrderData() {
@@ -96,11 +107,12 @@ function ifPostResponsOkShow() {
   orderButtonsContainer.style.display = "";
 }
 function ifPostResponsOk() {
-  orderButtonsContainer.append(payBtn);
-  orderButtonsContainer.append(sendBtn);
-  orderButtonsContainer.append(acceptBtn);
-  orderButtonsContainer.append(completeBtn);
+  const buttons = [payBtn, sendBtn, acceptBtn, completeBtn];
+  for (const button of buttons) {
+    orderButtonsContainer.append(button);
+  }
 }
+
 async function getRequestforFourthBtn() {
   const response = await fetch(url, {
     method: "GET",
@@ -109,4 +121,32 @@ async function getRequestforFourthBtn() {
     },
     body: JSON.stringify(),
   });
+}
+function showOrderStatusPaid() {
+  messegeContainer.style.display = "block";
+  messege.innerText = "Order has been paid";
+  setTimeout(function () {
+    messege.innerText = "";
+    messegeContainer.style.display = "";
+  }, 2000);
+}
+function showOrderStatusSent() {
+  messegeContainer.style.display = "block";
+  messege.innerText = "the Order has been sent";
+  setTimeout(function () {
+    messege.innerText = "";
+    messegeContainer.style.display = "";
+  }, 2000);
+}
+function orderStatusCompleteAndAccept() {
+  messegeContainer.style.display = "block";
+  messege.innerText = "Succes";
+  setTimeout(function () {
+    messege.innerText = "";
+    messegeContainer.style.display = "";
+  }, 2000);
+}
+function logout() {
+  orderButtonsContainer.style.display = "none";
+  regBtnAndLoginBtn.style.display = "";
 }

@@ -33,19 +33,18 @@ import {
   getRequestforFourthBtn,
   pSignUpMessegeFunc,
   ifPostResponsOkShow,
+  orderStatusCompleteAndAccept,
+  showOrderStatusSent,
+  showOrderStatusPaid,
+  logout,
 } from "./scripts/main.js";
 
 registrationBtn.addEventListener("click", () => {
-  // Показываем скелетон
   skeletonContainer.style.display = "block";
-
-  setTimeout(function () {
-    // Здесь выполните вашу задачу после задержки
+  setTimeout(() => {
     setItemToLocalStorage();
     regUserNameInput.value = "";
     regEmailInput.value = "";
-
-    // Скрываем скелетон
     skeletonContainer.style.display = "none";
   }, 2000);
   pSignUpMessegeFunc();
@@ -57,26 +56,45 @@ loginBtn.addEventListener("click", () => {
   loginEmailInput.value = "";
 });
 submitBtn.addEventListener("click", () => {
+  skeletonContainer.style.display = "block";
   postOrderData();
   ifPostResponsOkShow();
+  setTimeout(() => {
+    skeletonContainer.style.display = "none";
+  }, 600);
 });
 payBtn.addEventListener("click", () => {
-  getRequestforFourthBtn();
-  messege.innerText = "Order has been paid";
+  skeletonContainer.style.display = "block";
+  setTimeout(() => {
+    getRequestforFourthBtn();
+    showOrderStatusPaid();
+    skeletonContainer.style.display = "none";
+  }, 1000);
 });
 sendBtn.addEventListener("click", () => {
-  getRequestforFourthBtn();
-  messege.innerText = "the Order has been sent";
+  skeletonContainer.style.display = "block";
+  setTimeout(() => {
+    getRequestforFourthBtn();
+    showOrderStatusSent();
+    skeletonContainer.style.display = "none";
+  }, 1000);
 });
 acceptBtn.addEventListener("click", () => {
-  getRequestforFourthBtn();
-  messege.innerText = "Succes";
+  skeletonContainer.style.display = "block";
+  setTimeout(() => {
+    getRequestforFourthBtn();
+    orderStatusCompleteAndAccept();
+  }, 1000);
+  skeletonContainer.style.display = "none";
 });
 completeBtn.addEventListener("click", () => {
-  getRequestforFourthBtn();
-  messege.innerText = "Succes";
+  skeletonContainer.style.display = "block";
+  setTimeout(() => {
+    getRequestforFourthBtn();
+    orderStatusCompleteAndAccept();
+    skeletonContainer.style.display = "none";
+  }, 1000);
 });
 logoutBtn.addEventListener("click", () => {
-  orderButtonsContainer.style.display = "none";
-  regBtnAndLoginBtn.style.display = "";
+  logout();
 });
