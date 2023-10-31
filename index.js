@@ -46,7 +46,7 @@ registrationBtn.addEventListener("click", () => {
     regUserNameInput.value = "";
     regEmailInput.value = "";
     skeletonContainer.style.display = "none";
-  }, 2000);
+  }, 1000);
   pSignUpMessegeFunc();
 });
 
@@ -84,8 +84,8 @@ acceptBtn.addEventListener("click", () => {
   setTimeout(() => {
     getRequestforFourthBtn();
     orderStatusCompleteAndAccept();
+    skeletonContainer.style.display = "none";
   }, 1000);
-  skeletonContainer.style.display = "none";
 });
 completeBtn.addEventListener("click", () => {
   skeletonContainer.style.display = "block";

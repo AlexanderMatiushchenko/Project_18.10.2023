@@ -38,6 +38,7 @@ export {
   showOrderStatusSent,
   showOrderStatusPaid,
   logout,
+  orderForm,
 };
 
 function setItemToLocalStorage() {
@@ -45,6 +46,7 @@ function setItemToLocalStorage() {
     userName: regUserNameInput.value,
     email: regEmailInput.value,
   };
+
   try {
     const userObjectJSON = JSON.stringify(userObject);
     localStorage.setItem("user", userObjectJSON);
@@ -54,10 +56,8 @@ function setItemToLocalStorage() {
 }
 function pSignUpMessegeFunc() {
   let existingMessage = document.querySelector("#signupMessage");
-  if (existingMessage) {
-    existingMessage.innerText =
-      "Thanks for signing up. Your information has been updated.";
-  } else {
+  //     "Thanks for signng up. Your information has been updated.";
+  if (!existingMessage) {
     let pSignUpMessage = document.createElement("p");
     pSignUpMessage.id = "signupMessage";
     pSignUpMessage.innerText =
@@ -80,12 +80,31 @@ function getItemFromLocalStorage() {
       regBtnAndLoginBtn.style.display = "none";
       containerWithInputs.style.display = "";
     } else {
-      console.log("User Name or Email is Wrong.");
+      let existingSigninMessage = document.querySelector("#signinMessage");
+      if (!existingSigninMessage) {
+        let pLoginMessage = document.createElement("p");
+
+        pLoginMessage.style.color = "red";
+        pLoginMessage.innerText = "User Name or Email is Wrong.";
+        pLoginMessage.id = "signinMessage";
+        signinBlock.append(pLoginMessage);
+        console.log("User Name or Email is Wrong.");
+      }
     }
   } else {
     console.log("User data not found.");
   }
 }
+
+// let existingMessage = document.querySelector("#signupMessage");
+//   //     "Thanks for signng up. Your information has been updated.";
+//   if (!existingMessage) {
+//     let pSignUpMessage = document.createElement("p");
+//     pSignUpMessage.id = "signupMessage";
+//     pSignUpMessage.innerText =
+//       "Thanks for signing up. Welcome to our community. We are happy to have you on board.";
+//     signupBlock.appendChild(pSignUpMessage);
+//   }
 
 function orderForm() {
   containerWithInputs.append(addressInput, priceInput, costInput, submitBtn);

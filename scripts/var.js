@@ -28,7 +28,6 @@ let orderObject = {
 };
 
 // Container with buttons in Order Form
-
 const orderButtonsContainer = document.querySelector("#orderButtonsContainer");
 const containerWithInputs = document.querySelector("#containerWithInputs");
 const loginFormContainer = document.querySelector("#loginFormContainer");
@@ -48,8 +47,8 @@ const acceptBtn = document.createElement("button");
 acceptBtn.innerText = "Accept";
 const completeBtn = document.createElement("button");
 completeBtn.innerText = "Complete";
-const registrationH1 = document.createElement("h1");
-regBtnAndLoginBtn.append(registrationH1);
+// const registrationH1 = document.createElement("h1");
+// regBtnAndLoginBtn.append(registrationH1);
 
 // Logout button
 const logoutBtn = document.createElement("button");
